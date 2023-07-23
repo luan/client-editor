@@ -261,6 +261,7 @@ message SpecialMeaningAppearanceIds {
 	optional uint32 tibia_coin_id = 4;
 	optional uint32 stamped_letter_id = 5;
 	optional uint32 supply_stash_id = 6;
+	optional uint32 reward_chest_id = 7;
 }
 
 enum FIXED_FRAME_GROUP {

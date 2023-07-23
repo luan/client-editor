@@ -14,10 +14,11 @@ import (
 )
 
 var (
-	configFile, tibiaExe, appearancesPath string
-	srcClient, dstClient                  string
-	srcFile, dstFile                      string
-	platform                              string
+	configFile, tibiaExe                   string
+	appearancesPath, outputAppearancesPath string
+	srcClient, dstClient                   string
+	srcFile, dstFile                       string
+	platform                               string
 )
 
 var rootCmd = &cobra.Command{
@@ -78,10 +79,11 @@ func init() {
 		Use:   "appearances",
 		Short: "Edit Tibia's appearances.dat",
 		Run: func(cmd *cobra.Command, args []string) {
-			appearances.Appearances(appearancesPath)
+			appearances.Appearances(appearancesPath, outputAppearancesPath)
 		},
 	}
-	appearancesCmd.PersistentFlags().StringVarP(&appearancesPath, "appearances", "a", "", "Path to appearances.dat")
+	appearancesCmd.PersistentFlags().StringVarP(&appearancesPath, "appearances", "a", "", "Path to input appearances.dat")
+	appearancesCmd.PersistentFlags().StringVarP(&outputAppearancesPath, "output", "o", "appearances.out.dat", "Path to output appearances.dat")
 	rootCmd.AddCommand(appearancesCmd)
 
 	rootCmd.PersistentFlags().StringVarP(&configFile, "config", "c", "config.toml", "Path to the config file")
