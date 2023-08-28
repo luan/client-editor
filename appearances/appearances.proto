@@ -1,6 +1,7 @@
 syntax = "proto2";
 
 option go_package = "appearances/gen;gen";
+option csharp_namespace = "Tibia.Protobuf.Appearances";
 
 message Coordinate {
 	optional uint32 x = 1;
@@ -177,6 +178,7 @@ message AppearanceFlags {
 	optional bool clockexpire = 54;
 	optional bool expire = 55;
 	optional bool expirestop = 56;
+	optional bool wrapkit = 57;
 }
 
 message AppearanceFlagUpgradeClassification {
